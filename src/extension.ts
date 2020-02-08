@@ -4,9 +4,9 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import { xmlParse, xsltProcess } from 'xslt-processor';
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext): void {
     console.log('Congratulations, your extension "xslt-transform" is now active!');
-    const disposable = vscode.commands.registerCommand('extension.runXSLTTransform', async () => {
+    const disposable: vscode.Disposable = vscode.commands.registerCommand('extension.runXSLTTransform', async (): Promise<any> => {
         const xsltFile = await vscode.window.showOpenDialog(
             {
                 canSelectFiles: true,
@@ -18,8 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
             }
         );
         if(vscode.window.activeTextEditor !== undefined && xsltFile !== undefined) {
-            const xml = vscode.window.activeTextEditor.document.getText();
-            const xslt = fs.readFileSync(xsltFile[0].fsPath).toString();
+            const xml: string = vscode.window.activeTextEditor.document.getText();
+            const xslt: string = fs.readFileSync(xsltFile[0].fsPath).toString();
             try {
                 const rXml = xmlParse(xml);
                 const rXslt = xmlParse(xslt);
@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
                 
                 vscode.window.showTextDocument(textDoc, vscode.ViewColumn.Beside);
 
-                const web = vscode.window.createWebviewPanel('transformPreview', 'XSLT Results', vscode.ViewColumn.Beside, { });
+                const web: vscode.WebviewPanel = vscode.window.createWebviewPanel('transformPreview', 'XSLT Results', vscode.ViewColumn.Beside, { });
                 web.webview.html = result;
                 
             }
@@ -50,4 +50,5 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {
+    //I need to put code here.
 }
