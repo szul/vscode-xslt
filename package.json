@@ -2,7 +2,7 @@
     "name": "vscode-xslt",
     "displayName": "Xslt Tools",
     "description": "Transform XML files with XSLT inside of Visual Studio Code",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.29.0"
     },
