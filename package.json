@@ -3,6 +3,7 @@
     "displayName": "Xslt Tools",
     "description": "Transform XML files with XSLT inside of Visual Studio Code",
     "version": "0.1.0",
+    "publisher": "szul",
     "engines": {
         "vscode": "^1.29.0"
     },
@@ -24,6 +25,10 @@
     "contributors": [
         "Michael Szul <michael@szul.us>"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/szul/vscode-xslt.git"
+      },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
