@@ -44,6 +44,6 @@
         "@types/mocha": "^2.2.42"
     },
     "dependencies": {
-        "xslt-processor": "^0.11.1"
+        "xslt-processor": "^0.11.7"
     }
 }
